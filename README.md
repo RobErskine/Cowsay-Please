@@ -4,7 +4,7 @@
 
 This is was a super late passion project that may have been completed after a few drinks. It's a dumb app, and was done purely for enjoyment. 
 
-Basically it $ runs fortune, runs fortune through a sentiment analysis API, and based on the result, changes the cow's eyes (`^^`,`oo`,`ಠಠ`), and then tweets out the result to [twitter](http://twitter.com/cowsayplz).
+Basically it runs `$ fortune` through a sentiment analysis API, and based on the result, changes the cow's eyes (`^^`,`oo`,`ಠಠ`), and then tweets out the result to [twitter](http://twitter.com/cowsayplz).
 
 ### These links provided a lot of value
 * https://en.wikipedia.org/wiki/Fortune_(Unix)
