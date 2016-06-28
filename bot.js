@@ -13,12 +13,34 @@ var T = new Twit(require('./config.js'));
 function cowsayPLZ() {
 
     var exec = require('child_process').exec;
-    var cmd = 'fortune -s -n 73';
+    var fortuneCmd = 'fortune -s -n 75';
 
-    exec(cmd, function(error, stdout, stderr) {
-      T.post('statuses/update', { status: stdout +"---------- \r\n        \\  ^__^\r\n         \\  (oo)\\__\r\n            (__)\\" }, function(err, data, response) {
-        console.log(data)
-      })
+    exec(fortuneCmd, function(error, stdout, stderr) {
+      var response = stdout;
+      exec('curl -d "text='+response+'" http://text-processing.com/api/sentiment/', function(error, stdout, stderr){
+        var sentimentPre = JSON.parse("[" + stdout + "]");
+        var sentiment = sentimentPre[0]["label"];
+        var eyes;
+
+        switch(sentiment){
+          case "pos":
+            eyes = "^^";
+            break;
+          case "nuetral":
+            eyes = "oo";
+            break;
+          case "neg":
+            eyes = "ಠಠ";
+            break
+          default:
+            eyes = "oo";
+        }
+
+        T.post('statuses/update', { status: response +"----------\r\n    \\  ^__^\r\n     \\  ("+eyes+")\\__\r\n        (__)\\" }, function(err, data, response) {
+          console.log(data)
+        });
+
+      });
     });
 }
 
