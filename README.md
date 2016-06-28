@@ -16,10 +16,11 @@
 3. run `$ node bot.js`
 4. ???
 5. profit
-- - - - - - - - 
-        \   ^__^
-         \  (oo)\__
-            (__)\
+
+-------- 
+    \   ^__^
+     \  (oo)\__
+        (__)\
 
 
 <sup>1</sup> But why would you want to?
