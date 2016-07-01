@@ -17,19 +17,21 @@ function cowsayPLZ() {
 
     exec(fortuneCmd, function(error, stdout, stderr) {
       var response = stdout;
-      exec('curl -d "text='+response+'" http://text-processing.com/api/sentiment/', function(error, stdout, stderr){
+      exec('curl -d "txt='+response+'" http://sentiment.vivekn.com/api/text/', function(error, stdout, stderr){
         var sentimentPre = JSON.parse("[" + stdout + "]");
-        var sentiment = sentimentPre[0]["label"];
+        var sentiment = sentimentPre[0]["result"]["sentiment"];
         var eyes;
 
+        console.log(sentiment);
+
         switch(sentiment){
-          case "pos":
+          case "Positive":
             eyes = "^^";
             break;
-          case "nuetral":
+          case "Nuetral":
             eyes = "oo";
             break;
-          case "neg":
+          case "Negative":
             eyes = "ಠಠ";
             break
           default:
