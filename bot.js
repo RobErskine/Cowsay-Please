@@ -12,12 +12,12 @@ var T = new Twit(require('./config.js'));
 
 function cowsayPLZ() {
     var exec = require('child_process').exec;
-    var fortuneCmd = 'fortune -s -n 228';
+    var fortuneCmd = 'fortune -s -n 220';
 
     exec(fortuneCmd, function(error, stdout, stderr) {
       var response = stdout;
       console.log(response);
-      T.post('statuses/update', { status: response +"----------\r\n    \\  ^__^\r\n     \\  (oo)\\__\r\n        (__)\\" }, function(err, data, response) {
+      T.post('statuses/update', { status: response +"----------\r\n    \\  ^__^\r\n     \\  (oo)\\__\r\n        (__)\\ - "+ Math.floor(Math.random() * 999999) }, function(err, data, response) {
         console.log(data)
       });
     });
