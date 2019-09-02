@@ -17,14 +17,10 @@ function cowsayPLZ() {
     exec(fortuneCmd, function(error, stdout, stderr) {
       var response = stdout;
       console.log(response);
-      exec('curl -d "txt='+response+'" http://sentiment.vivekn.com/api/text/', function(error, stdout, stderr){
-        T.post('statuses/update', { status: response +"----------\r\n    \\  ^__^\r\n     \\  (oo)\\__\r\n        (__)\\" }, function(err, data, response) {
-          console.log(data)
-        });
+      T.post('statuses/update', { status: response +"----------\r\n    \\  ^__^\r\n     \\  (oo)\\__\r\n        (__)\\" }, function(err, data, response) {
+        console.log(data)
       });
     });
 }
 
 cowsayPLZ();
-
-//setInterval(cowsayPLZ, 1000 * 60 * 60);
