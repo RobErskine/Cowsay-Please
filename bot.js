@@ -12,7 +12,7 @@ var T = new Twit(require('./config.js'));
 // }
 
 function cowsayPLZ() {
-    var fortuneCmd = spawn('fortune', ['-s', '-n 180']);
+    var fortuneCmd = spawn('/usr/games/fortune', ['-s', '-n 180']);
 
     fortuneCmd.stdout.on('data', (data) => {
       T.post('statuses/update', { status: data +"----\r\n\  \\   \r\n\  ^__^\r\n\  (oo)\_________\r\n\   (__)\                )\/\\r\n\         ||----w ||\r\n\         ||          ||"}, function(err, data, response) {
